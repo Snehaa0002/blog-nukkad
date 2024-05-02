@@ -1,7 +1,49 @@
-import React from 'react'
+'use client'
 import classes from "./login.module.css"
+'use client';
+import { useFormik } from 'formik'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation';
+import toast from 'react-hot-toast';
+
 
 const page = () => {
+
+  const router = useRouter();
+
+  const loginForm = useFormik({
+    initialValues: {
+      email: '',
+      password: ''
+    },
+    onSubmit: (values) => {
+      fetch('http://localhost:5000/user/authenticate', {
+        method: 'POST',
+        body: JSON.stringify(values),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then((response) => {
+          console.log(response.status);
+          if (response.status === 200) {
+            toast.success('Login Successfull');
+            response.json()
+            .then((data) => {
+              console.log(data);
+              sessionStorage.setItem('user', JSON.stringify(data));
+              router.push('/user/edit-page');
+            })
+          } else {
+            toast.error('Invalid Credentials');
+
+          }
+        }).catch((err) => {
+          console.log(err);
+          toast.error('Something went wrong');
+        });
+    }
+  })
   return (
     //<div className={classes.images}>
         //<img src="https://wallpapercave.com/wp/wp9764008.jpg" alt="" />

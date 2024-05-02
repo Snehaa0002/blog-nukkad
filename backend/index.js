@@ -1,6 +1,7 @@
 //import express
 const express = require('express');
 const userRouter = require('./routers/userRouter');
+const userRouter = require('./routers/profileRouter');
 const cors = require ('cors');
 
 
@@ -17,6 +18,11 @@ app.use(cors({
 app.use(express.json());
 
 app.use('/user', userRouter);
+
+app.use('/profile', userRouter);
+
+
+
 
 
 // endpoint
