@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import classes from "./login.module.css"
 'use client';
 import { useFormik } from 'formik'
@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 
 
-const page = () => {
+const login = () => {
 
   const router = useRouter();
 
