@@ -1,242 +1,174 @@
 'use client';
 import { useFormik } from 'formik'
-import React from 'react'
+import * as Yup from 'yup'
+import { useRouter } from 'next/navigation';
+import Swal from 'sweetalert2';
 
-function Signup() {
 
-  const signupForm = useFormik({
+const SignupSchema = Yup.object().shape({
+  username: Yup.string()
+    .required('Required')
+    .min(3, 'Too short')
+    .max(20, 'Too long'),
+  email: Yup.string()
+    .email('Invalid email').required('Required'),
+  password: Yup.string()
+    .min(8, 'Too short')
+    .max(20, 'Too long')
+    .required('Password is required').matches(/[A-Z]/, 'password must contain uppercase letters')
+    .matches(/\W/, 'Password must contain special characters'),
+  cpassword: Yup.string().required('Confirm Password is required')
+    .oneOf([Yup.ref('password'), null], 'Passwords must match')
+})
+
+
+const Signup = () => {
+ const router = useRouter();
+  //step1 : formik initialization
+  const SignupForm = useFormik({
     initialValues: {
-      name: '',
+      username: '',
       email: '',
-      password: ''
+      password: '',
+      cpassword: '',
+      avatar:''
     },
-    onSubmit: (values) => {
+    onSubmit: async (values, action) => {
+
       console.log(values);
-      fetch('http://localhost:5000/user/add', {
+
+      const res = await fetch('http://localhost:5000/user/add', {
         method: 'POST',
         body: JSON.stringify(values),
         headers: {
           'Content-Type': 'application/json'
         }
-      })
-        .then((response) => {
-          console.log(response.status);
-          if (response.status === 200) {
-            toast.success('Registered Successfully');
-          } else {
-            toast.error('Something went wrong');
-          }
-        }).catch((err) => {
-          console.log(err);
-          toast.error('Something went wrong');
-        });
-    }
+
+      });
+      console.log(res.status)
+      action.resetForm();
+
+      if (res.status === 200) {
+        Swal.fire({
+          icon: 'success',
+         text : 'Signup Successful!'
+        })
+       router.push('/login');
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+        
+        })
+
+      }
+    },
+    validationSchema: SignupSchema
   })
 
   return (
-    <div className="pt-10 h-screen bg-cover bg-center bg-[url('https://img.freepik.com/free-vector/geometric-gradient-futuristic-background_23-2149116406.jpg?size=626&ext=jpg&ga=GA1.1.553209589.1714608000&semt=ais')]">
-      <div className='md:w-1/4 mx-auto'>
-        <div className="bg-white  border border-gray-200 rounded-xl shadow-sm dark:bg-neutral-900 dark:border-neutral-700">
-          <div className="p-4 sm:p-7">
-            <div className="text-center">
-              <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">
-                Sign up
-              </h1>
-              <p className="mt-2 text-sm text-gray-600 dark:text-neutral-400">
-                Already have an account?
-                <a
-                  className="text-purple-600 decoration-2 hover:underline font-medium dark:text-blue-500"
-                  href="../examples/html/signin.html"
-                >
-                  Sign in here
-                </a>
-              </p>
-            </div>
-            <div className="mt-5">
-              <button
-                type="button"
-                className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800"
-              >
-                <svg
-                  className="w-4 h-auto"
-                  width={46}
-                  height={47}
-                  viewBox="0 0 46 47"
-                  fill="none"
-                >
-                  <path
-                    d="M46 24.0287C46 22.09 45.8533 20.68 45.5013 19.2112H23.4694V27.9356H36.4069C36.1429 30.1094 34.7347 33.37 31.5957 35.5731L31.5663 35.8669L38.5191 41.2719L38.9885 41.3306C43.4477 37.2181 46 31.1669 46 24.0287Z"
-                    fill="#4285F4"
-                  />
-                  <path
-                    d="M23.4694 47C29.8061 47 35.1161 44.9144 39.0179 41.3012L31.625 35.5437C29.6301 36.9244 26.9898 37.8937 23.4987 37.8937C17.2793 37.8937 12.0281 33.7812 10.1505 28.1412L9.88649 28.1706L2.61097 33.7812L2.52296 34.0456C6.36608 41.7125 14.287 47 23.4694 47Z"
-                    fill="#34A853"
-                  />
-                  <path
-                    d="M10.1212 28.1413C9.62245 26.6725 9.32908 25.1156 9.32908 23.5C9.32908 21.8844 9.62245 20.3275 10.0918 18.8588V18.5356L2.75765 12.8369L2.52296 12.9544C0.909439 16.1269 0 19.7106 0 23.5C0 27.2894 0.909439 30.8731 2.49362 34.0456L10.1212 28.1413Z"
-                    fill="#FBBC05"
-                  />
-                  <path
-                    d="M23.4694 9.07688C27.8699 9.07688 30.8622 10.9863 32.5344 12.5725L39.1645 6.11C35.0867 2.32063 29.8061 0 23.4694 0C14.287 0 6.36607 5.2875 2.49362 12.9544L10.0918 18.8588C11.9987 13.1894 17.25 9.07688 23.4694 9.07688Z"
-                    fill="#EB4335"
-                  />
-                </svg>
-                Sign up with Google
-              </button>
-              <div className="py-3 flex items-center text-xs text-gray-400 uppercase before:flex-1 before:border-t before:border-gray-200 before:me-6 after:flex-1 after:border-t after:border-gray-200 after:ms-6 dark:text-neutral-500 dark:before:border-neutral-600 dark:after:border-neutral-600">
-                Or
+    <>
+
+      <div className="container-fluid flex items-center px-20 w-full h-auto" style={{ height: "100vh", opacity: "1", backgroundImage: "url(https://img.freepik.com/free-photo/3d-illustration-smartphone-with-products-coming-out-screen-online-shopping-e-commerce-concept_58466-14529.jpg?w=826&t=st=1710830025~exp=1710830625~hmac=be8d93fb6ebdb54a90db311a2e1b9e5c42e53780184e8ca78d4cf7cef0e4acaf)", backgroundSize: "cover" }}>
+
+        <a
+          href="#"
+          className="flex flex-col items-center bg-transparent py-5 px-16   rounded-lg shadow-2xl md:flex-row md:max-w-xxl hover:bg-purple-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+        >
+          <img
+            className="object-cover w-full rounded-t-lg h-96  md:h-auto md:w-64 md:rounded-none md:rounded-s-lg"
+            src="https://img.freepik.com/free-vector/sign-page-abstract-concept-illustration_335657-3875.jpg"
+            alt=""
+          />
+          <div className="flex flex-col  justify-between  p-4 leading-normal">
+            <h5 className="mb-2 text-3xl  font-serif  font-bold tracking-tight text-purple-500 dark:text-white">
+              Create a new account
+            </h5>
+            <form className="md:w-64" onSubmit={SignupForm.handleSubmit}>
+              {/* <div className="mb-5">
+
+                <input
+                  type="file"
+                  id="avatar"
+                  className="bg-gray-50  text-purple-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="avatar"
+                  required=""
+                  onChange={SignupForm.handleChange}
+                  value={SignupForm.values.avatar}
+                />
+                <span style={{ color: 'red', fontsize: '10', marginLeft: '50' }}>{SignupForm.touched.avatar && SignupForm.errors.avatar}</span>
+
+              </div> */}
+              <div className="mb-5">
+
+                <input
+                  type="text"
+                  id="username"
+                  className="bg-gray-50  text-purple-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="username"
+                  
+                  onChange={SignupForm.handleChange}
+                  value={SignupForm.values.username}
+                />
+                <span style={{ color: 'red', fontsize: '10', marginLeft: '50' }}>{SignupForm.touched.username && SignupForm.errors.username}</span>
+
               </div>
-              {/* Form */}
-              <form onSubmit={signupForm.handleSubmit}>
-                <div className="grid gap-y-4">
-                  {/* Form Group */}
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm mb-2 dark:text-white"
-                    >
-                      Email address
-                    </label>
-                    <div className="relative">
-                      <input
-                        type="email"
-                        id="email"
-                        onChange={signupForm.handleChange}
-                        value={signupForm.values.email}
-                        className="border-2 py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                        required=""
-                        aria-describedby="email-error"
-                      />
-                      <div className="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
-                        <svg
-                          className="size-5 text-red-500"
-                          width={16}
-                          height={16}
-                          fill="currentColor"
-                          viewBox="0 0 16 16"
-                          aria-hidden="true"
-                        >
-                          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
-                        </svg>
-                      </div>
-                    </div>
-                    <p className="hidden text-xs text-red-600 mt-2" id="email-error">
-                      Please include a valid email address so we can get back to you
-                    </p>
-                  </div>
-                  {/* End Form Group */}
-                  {/* Form Group */}
-                  <div>
-                    <label
-                      htmlFor="password"
-                      className="block text-sm mb-2 dark:text-white"
-                    >
-                      Password
-                    </label>
-                    <div className="relative">
-                      <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                        required=""
-                        aria-describedby="password-error"
-                      />
-                      <div className="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
-                        <svg
-                          className="size-5 text-red-500"
-                          width={16}
-                          height={16}
-                          fill="currentColor"
-                          viewBox="0 0 16 16"
-                          aria-hidden="true"
-                        >
-                          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
-                        </svg>
-                      </div>
-                    </div>
-                    <p className="hidden text-xs text-red-600 mt-2" id="password-error">
-                      8+ characters required
-                    </p>
-                  </div>
-                  {/* End Form Group */}
-                  {/* Form Group */}
-                  <div>
-                    <label
-                      htmlFor="confirm-password"
-                      className="block text-sm mb-2 dark:text-white"
-                    >
-                      Confirm Password
-                    </label>
-                    <div className="relative">
-                      <input
-                        type="password"
-                        id="confirm-password"
-                        name="confirm-password"
-                        className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                        required=""
-                        aria-describedby="confirm-password-error"
-                      />
-                      <div className="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
-                        <svg
-                          className="size-5 text-red-500"
-                          width={16}
-                          height={16}
-                          fill="currentColor"
-                          viewBox="0 0 16 16"
-                          aria-hidden="true"
-                        >
-                          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
-                        </svg>
-                      </div>
-                    </div>
-                    <p
-                      className="hidden text-xs text-red-600 mt-2"
-                      id="confirm-password-error"
-                    >
-                      Password does not match the password
-                    </p>
-                  </div>
-                  {/* End Form Group */}
-                  {/* Checkbox */}
-                  <div className="flex items-center">
-                    <div className="flex">
-                      <input
-                        id="remember-me"
-                        name="remember-me"
-                        type="checkbox"
-                        className="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
-                      />
-                    </div>
-                    <div className="ms-3">
-                      <label htmlFor="remember-me" className="text-sm dark:text-white">
-                        I accept the{" "}
-                        <a
-                          className="text-blue-600 decoration-2 hover:underline font-medium dark:text-blue-500"
-                          href="#"
-                        >
-                          Terms and Conditions
-                        </a>
-                      </label>
-                    </div>
-                  </div>
-                  {/* End Checkbox */}
-                  <button
-                    type="submit"
-                    className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-purple-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
-                  >
-                    Sign up
-                  </button>
-                </div>
-              </form>
-              {/* End Form */}
-            </div>
+
+              <div className="mb-5">
+
+                <input
+                  type="email"
+                  id="email"
+                  className="bg-gray-50  text-purple-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="email"
+                  onChange={SignupForm.handleChange}
+                  value={SignupForm.values.email}
+                />
+                <span style={{ color: 'red', fontsize: '10', marginLeft: '50' }}>{SignupForm.touched.email && SignupForm.errors.email}</span>
+
+              </div>
+              <div className="mb-5">
+
+                <input
+                  type="password"
+                  id="password"
+                  className="bg-gray-50 border border-gray-300 text-purple-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="password"
+                  onChange={SignupForm.handleChange}
+                  value={SignupForm.values.password}
+                />
+                <span style={{ color: 'red', fontsize: '10', marginLeft: '50' }}>{SignupForm.touched.password && SignupForm.errors.password}</span>
+
+              </div>
+              <div className="mb-5">
+
+                <input
+                  type="password"
+                  id="cpassword"
+                  className="bg-gray-50  text-purple-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="confirm password"
+                  required=""
+                  onChange={SignupForm.handleChange}
+                  value={SignupForm.values.cpassword}
+                />
+                <span style={{ color: 'red', fontsize: '10', marginLeft: '50' }}>{SignupForm.touched.cpassword && SignupForm.errors.cpassword}</span>
+
+              </div>
+           
+              <button
+                type="submit"
+                className="text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg w-full sm:w-auto px-5 py-1 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800 text-lg"
+              >
+                Submit
+              </button>
+            </form>
+
           </div>
-        </div>
+        </a>
       </div>
-    </div>
+
+    </>
   )
 }
 
 export default Signup
-

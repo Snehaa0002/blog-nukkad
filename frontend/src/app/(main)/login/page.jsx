@@ -1,13 +1,25 @@
 'use client';
 import classes from "./login.module.css"
-'use client';
 import { useFormik } from 'formik'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
+import * as Yup from 'Yup';
+
+  const signupValidationSchema = Yup.object().shape({
+    name: Yup.string().required('Name is Required').min(3, 'Name is Too Short'),
+    email: Yup.string().email('Invalid Email').required('Email is Required'),
+    password: Yup.string().required('Password is Required').min(6, 'Password is Too Short')
+    .matches(/[A-Z]/, 'Password must contain uppercase letter' )
+    .matches(/[a-z]/, 'Password must contain lowercase letter')
+    .matches(/[0-9]/, 'Password must contain number'),
+    confirmPassword: Yup.string().required('Confirm Password is Required')
+    .oneOf([Yup.ref('password'), null], 'Passwords must match')
+  });
 
 
-const login = () => {
+
+const Login = () => {
 
   const router = useRouter();
 
@@ -161,4 +173,4 @@ const login = () => {
   )
 }
 
-export default page
+export default Login
