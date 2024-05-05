@@ -1,6 +1,6 @@
 'use client';
-import { useFormik } from 'formik'
-import * as Yup from 'yup'
+import { useFormik } from 'formik';
+import * as Yup from 'Yup'
 import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2';
 
@@ -19,7 +19,7 @@ const SignupSchema = Yup.object().shape({
     .matches(/\W/, 'Password must contain special characters'),
   cpassword: Yup.string().required('Confirm Password is required')
     .oneOf([Yup.ref('password'), null], 'Passwords must match')
-})
+});
 
 
 const Signup = () => {
