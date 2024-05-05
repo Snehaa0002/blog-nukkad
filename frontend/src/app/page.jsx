@@ -108,8 +108,7 @@ const Home = () => {
           <div className="aspect-w-16 aspect-h-7">
             <img
               className="w-full object-cover rounded-xl"
-              src="https://images.unsplash.com/photo-1624571409412-1f253e1ecc89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
-              alt="Image Description"
+              src="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2022/03/what-is-a-blog-1.webp"
             />
           </div>
           {/* Grid */}
