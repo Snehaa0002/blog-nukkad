@@ -1,6 +1,8 @@
 //import express
 const express = require('express');
 const userRouter = require('./routers/userRouter');
+const blogRouter = require('./routers/blogRouter');
+const competitionRouter = require('./routers/competitionRouter');
 const cors = require('cors');
 
 
@@ -17,12 +19,8 @@ app.use(cors({
 app.use(express.json());
 
 app.use('/user', userRouter);
-
-app.use('/profile', userRouter);
-
-
-
-
+app.use('/blog', blogRouter);
+app.use('/competition', competitionRouter);
 
 // endpoint
 app.get('/', (req, res) => {

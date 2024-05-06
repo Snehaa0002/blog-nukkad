@@ -49,13 +49,13 @@ const ViewBlog = () => {
           <hr className='mb-20 border-black' />
           <div className='grid grid-cols-12'>
             <div className="col-span-3">
-              <img className="w-16 h-16 rounded-full block mx-auto  mb-4 " src={`${process.env.NEXT_PUBLIC_API_URL}/${blogData.user.avatar}`} alt="" />
+              {/* <img className="w-16 h-16 rounded-full block mx-auto  mb-4 " src={`${process.env.NEXT_PUBLIC_API_URL}/${blogData.user.avatar}`} alt="" /> */}
 
               <div className="flex ">
                 <div className="font-medium dark:text-white">
                   <p className='text-center text-slate-500 text-md'>{new Date(blogData.createdAt).toLocaleDateString()}</p>
 
-                  <p className='text-center text-xl'>{blogData.user.name}</p>
+                  {/* <p className='text-center text-xl'>{blogData.user.name}</p> */}
                   <div className="text-sm text-gray-500 text-center dark:text-gray-400">Joined in {MONTH_NAMES[new Date(blogData.createdAt).getMonth()] + ' ' + new Date(blogData.createdAt).getFullYear()}</div>
                   <hr className='my-4 border-black' />
                   <p className="">{blogData.tags}</p>

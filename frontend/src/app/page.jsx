@@ -21,20 +21,18 @@ const Home = () => {
             <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
               <div className="max-w-2xl text-center mx-auto">
                 <p className="inline-block text-sm font-medium bg-clip-text bg-gradient-to-l from-blue-600 to-violet-500 text-transparent dark:from-blue-400 dark:to-violet-400">
-                  Preline: A vision for 2023
+                
                 </p>
                 {/* Title */}
                 <div className="mt-5 max-w-2xl">
                   <h1 className="block font-semibold text-gray-800 text-4xl md:text-5xl lg:text-6xl dark:text-neutral-200">
-                    The Intuitive Web Solutions
+                    Blog Nukkad
                   </h1>
                 </div>
                 {/* End Title */}
                 <div className="mt-5 max-w-3xl">
                   <p className="text-lg text-gray-600 dark:text-neutral-400">
-                    Preline UI is an open-source set of prebuilt UI components,
-                    ready-to-use examples and Figma design system based on the
-                    utility-first Tailwind CSS framework.
+                  Blog Nukkad is a platform where people share their thoughts, experiences, and expertise through writing. Blog Nukkad is a website where bloggers from all over come together to write and share their stories, ideas, and opinions.
                   </p>
                 </div>
                 {/* Buttons */}
@@ -89,10 +87,10 @@ const Home = () => {
                       />
                       <path
                         d="M15.875 9C15.875 10.656 14.531 12 12.875 12C11.219 12 9.87501 10.656 9.87501 9C9.87501 7.344 11.219 6 12.875 6C14.531 6 15.875 7.344 15.875 9Z"
-                        fill="#1ABCFE"
+                        
                       />
                     </svg>
-                    Preline Figma
+                     preline Figma
                   </a>
                 </div>
                 {/* End Buttons */}

@@ -40,7 +40,7 @@ const BrowseBlog = () => {
                     <div className="aspect-w-16 aspect-h-11">
                         <img
                             className="w-full object-cover rounded-xl"
-                            src={`${process.env.NEXT_PUBLIC_API_URL}/${blog.cover}`}
+                            src={`http://localhost:5000/${blog.cover}`}
                             alt={blog.title}
                         />
                     </div>
@@ -53,14 +53,14 @@ const BrowseBlog = () => {
                         </p>
                     </div>
                     <div className="mt-auto flex items-center gap-x-3">
-                        <img
+                        {/* <img
                             className="size-8 rounded-full"
-                            src={`${process.env.NEXT_PUBLIC_API_URL}/${blog.user.avatar}`}
+                            src={`http://localhost:5000/${blog.user.avatar}`}
                             alt={blog.user.name}
-                        />
+                        /> */}
                         <div>
                             <h5 className="text-sm text-gray-800 dark:text-neutral-200">
-                                By {blog.user.name}
+                                {/* By {blog.user.name} */}
                             </h5>
                         </div>
                     </div>

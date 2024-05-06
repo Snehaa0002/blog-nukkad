@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Model = require('../models/userModel');
+const Model = require('../models/blogModel');
 
 
 router.post('/add', (req, res) => {
@@ -27,12 +27,23 @@ router.post('/authenticate', (req, res) => {
 
 //getall
 router.get('/getall', (req, res) => {
-    Model.find()
+    Model.find().populate('user')
         .then((result) => {
             res.json(result);
         }).catch((err) => {
             res.status(500).json();
         });
 });
+
+router.get('/getbyid/:id', (req, res) => {
+    Model.findById(req.params.id).populate('user')
+        .then((result) => {
+            res.json(result);
+        }).catch((err) => {
+            res.status(500).json();
+        });
+});
+
+
 
 module.exports = router;

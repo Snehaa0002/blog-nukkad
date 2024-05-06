@@ -6,7 +6,7 @@ const ContactUs = () => {
     <div className="max-w-7xl px-4 lg:px-6 lg:px-8 py-12 lg:py-24 mx-auto">
       <div className="mb-6 sm:mb-10 max-w-2xl text-center mx-auto">
         <h2 className="font-medium text-black text-2xl sm:text-4xl dark:text-white">
-          Contacts
+          Contact Us
         </h2>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 lg:items-center gap-6 md:gap-8 lg:gap-12">
@@ -43,12 +43,12 @@ const ContactUs = () => {
                 </svg>
                 <div className="grow">
                   <p className="text-sm text-gray-600 dark:text-neutral-400">
-                    United Kingdom
+                    India
                   </p>
                   <address className="mt-1 text-black not-italic dark:text-white">
-                    300 Bath Street, Tay House
+                    Hazratganj,
                     <br />
-                    Glasgow G2 4JR
+                    Lucknow
                   </address>
                 </div>
               </div>
@@ -86,7 +86,7 @@ const ContactUs = () => {
                       className="relative inline-block font-medium text-black before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:w-full before:h-1 before:bg-lime-400 hover:before:bg-black focus:outline-none focus:before:bg-black dark:text-white dark:hover:before:bg-white dark:focus:before:bg-white"
                       href="mailto:example@site.so"
                     >
-                      hello@example.so
+                      Sneha862@gmail.com
                     </a>
                   </p>
                 </div>
@@ -115,7 +115,7 @@ const ContactUs = () => {
                       className="relative inline-block font-medium text-black before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:w-full before:h-1 before:bg-lime-400 hover:before:bg-black focus:outline-none focus:before:bg-black dark:text-white dark:hover:before:bg-white dark:focus:before:bg-white"
                       href="mailto:example@site.so"
                     >
-                      +44 222 777-000
+                      +91 (8180326056)
                     </a>
                   </p>
                 </div>
