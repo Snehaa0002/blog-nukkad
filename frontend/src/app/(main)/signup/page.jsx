@@ -67,9 +67,9 @@ const Signup = () => {
   })
 
   return (
-    <>
+    <div>
 
-      <div className="container-fluid flex items-center px-20 w-full h-auto" style={{ height: "100vh", opacity: "1", backgroundImage: "url(https://img.freepik.com/free-photo/3d-illustration-smartphone-with-products-coming-out-screen-online-shopping-e-commerce-concept_58466-14529.jpg?w=826&t=st=1710830025~exp=1710830625~hmac=be8d93fb6ebdb54a90db311a2e1b9e5c42e53780184e8ca78d4cf7cef0e4acaf)", backgroundSize: "cover" }}>
+      <div className="container-fluid flex items-center px-20 w-full h-auto" style={{ height: "100vh", opacity: "1", backgroundImage: "url('https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg')", backgroundSize: "cover" }}>
 
         <a
           href="#"
@@ -167,7 +167,7 @@ const Signup = () => {
         </a>
       </div>
 
-    </>
+    </div>
   )
 }
 

@@ -60,7 +60,7 @@ const Login = () => {
     //<div className={classes.images}>
     //<img src="https://wallpapercave.com/wp/wp9764008.jpg" alt="" />
     <div>
-      <div className="flex w-full max-w-sm mx-auto overflow-hidden bg-gray-500 rounded-lg shadow-lg dark:bg-gray-800 lg:max-w-4xl">
+      <div className=" mt-20 flex w-full max-w-sm mx-auto overflow-hidden bg-gray-500 rounded-lg shadow-lg dark:bg-gray-800 lg:max-w-4xl">
         <div
           className="hidden bg-cover lg:block lg:w-1/2"
           style={{

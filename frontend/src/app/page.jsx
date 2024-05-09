@@ -90,7 +90,7 @@ const Home = () => {
                         
                       />
                     </svg>
-                     preline Figma
+                     
                   </a>
                 </div>
                 {/* End Buttons */}
