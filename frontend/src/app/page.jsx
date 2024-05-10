@@ -57,41 +57,7 @@ const Home = () => {
                       <path d="m9 18 6-6-6-6" />
                     </svg>
                   </a>
-                  <a
-                    className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-800"
-                    href="#"
-                  >
-                    <svg
-                      className="flex-shrink-0 size-4"
-                      width={19}
-                      height={18}
-                      viewBox="0 0 19 18"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M6.875 18C8.531 18 9.875 16.656 9.875 15V12H6.875C5.219 12 3.875 13.344 3.875 15C3.875 16.656 5.219 18 6.875 18Z"
-                        fill="#0ACF83"
-                      />
-                      <path
-                        d="M3.875 9C3.875 7.344 5.219 6 6.875 6H9.875V12H6.875C5.219 12 3.875 10.656 3.875 9Z"
-                        fill="#A259FF"
-                      />
-                      <path
-                        d="M3.875 3C3.875 1.344 5.219 0 6.875 0H9.875V6H6.875C5.219 6 3.875 4.656 3.875 3Z"
-                        fill="#F24E1E"
-                      />
-                      <path
-                        d="M9.87501 0H12.875C14.531 0 15.875 1.344 15.875 3C15.875 4.656 14.531 6 12.875 6H9.87501V0Z"
-                        fill="#FF7262"
-                      />
-                      <path
-                        d="M15.875 9C15.875 10.656 14.531 12 12.875 12C11.219 12 9.87501 10.656 9.87501 9C9.87501 7.344 11.219 6 12.875 6C14.531 6 15.875 7.344 15.875 9Z"
-                        
-                      />
-                    </svg>
-                     
-                  </a>
+                  
                 </div>
                 {/* End Buttons */}
               </div>
@@ -103,12 +69,14 @@ const Home = () => {
       <>
         {/* Features */}
         <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-          <div className="aspect-w-16 aspect-h-7">
+    
+          <div className="aspect-w-10 aspect-h-2">
             <img
               className="w-full object-cover rounded-xl"
-              src="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2022/03/what-is-a-blog-1.webp"
+              src="https://img.freepik.com/premium-vector/illustration-vector-graphic-cartoon-character-blogging_516790-1481.jpg"
             />
           </div>
+      
           {/* Grid */}
           <div className="mt-5 lg:mt-16 grid lg:grid-cols-3 gap-8 lg:gap-12">
             <div className="lg:col-span-1">
@@ -295,7 +263,7 @@ const Home = () => {
                 href="#"
                 aria-label="Brand"
               >
-                Brand
+                Blog Nukkad
               </a>
               <p className="mt-3 text-xs sm:text-sm text-gray-600 dark:text-neutral-400">
                 © 2022 Preline.

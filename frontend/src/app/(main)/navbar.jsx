@@ -12,7 +12,7 @@ const Navbar = () => {
         >
           <div className="flex items-center justify-between">
             <a className="flex-none text-xl font-semibold text-white" href="#">
-              Brand
+              Blog Nukkad
             </a>
             <div className="sm:hidden">
               <button
