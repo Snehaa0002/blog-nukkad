@@ -7,6 +7,7 @@ const ViewCompetition = () => {
   const { id } = useParams();
   const [competitionDetails, setCompetitionDetails] = useState(null);
   const [participantList, setParticipantList] = useState([]);
+  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
 
   const fetchCompetition = () => {
     fetch(`http://localhost:5000/competition/getbyid/${id}`)

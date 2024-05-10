@@ -28,7 +28,7 @@ const Browse = () => {
         return competitionList.map(comp => (
             <div className="group flex flex-col h-full bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7]">
                 <div className="h-52 flex flex-col justify-center items-center bg-blue-600 rounded-t-xl">
-                 <img src={`${process.env.NEXT_PUBLIC_API_URL}/${comp.image}`} alt="" />
+                 <img src={`${process.env.NEXT_PUBLIC_API_URL}/${comp.cover}`} alt="" />
                 </div>
                 <div className="p-4 md:p-6">
                     <span className="block mb-1 text-xs font-semibold uppercase text-blue-600 dark:text-blue-500">

@@ -3,6 +3,7 @@ const express = require('express');
 const userRouter = require('./routers/userRouter');
 const blogRouter = require('./routers/blogRouter');
 const competitionRouter = require('./routers/competitionRouter');
+const participationRouter = require('./routers/participationRouter');
 const utilRouter = require('./routers/utils');
 const cors = require('cors');
 
@@ -22,6 +23,7 @@ app.use(express.json());
 app.use('/user', userRouter);
 app.use('/blog', blogRouter);
 app.use('/competition', competitionRouter);
+app.use('/participation', participationRouter);
 app.use('/util', utilRouter);
 
 app.use(express.static('./static/uploads'));
