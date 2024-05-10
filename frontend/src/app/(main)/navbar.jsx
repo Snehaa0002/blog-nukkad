@@ -65,7 +65,7 @@ const Navbar = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-home"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 12l-2 0l9 -9l9 9l-2 0" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg>
                 Home
               </Link>
-              <Link className="font-medium text-gray-300 hover:text-white flex justify-center" href="/browse-competition">
+              <Link className="font-medium text-gray-300 hover:text-white flex justify-center" href="/about">
               <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
@@ -104,6 +104,7 @@ const Navbar = () => {
               </svg>
                Contact
               </Link>
+              
 
             </div>
           </div>

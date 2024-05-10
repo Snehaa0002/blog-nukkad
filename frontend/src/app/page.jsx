@@ -266,7 +266,7 @@ const Home = () => {
                 Blog Nukkad
               </a>
               <p className="mt-3 text-xs sm:text-sm text-gray-600 dark:text-neutral-400">
-                © 2022 Preline.
+                © 2024
               </p>
             </div>
             {/* End Col */}
@@ -709,7 +709,7 @@ const Home = () => {
                     Brand
                   </a>
                   <p className="mt-1 text-xs sm:text-sm text-gray-600 dark:text-neutral-400">
-                    © 2022 Preline.
+                    © 2024
                   </p>
                 </div>
                 {/* Social Brands */}
