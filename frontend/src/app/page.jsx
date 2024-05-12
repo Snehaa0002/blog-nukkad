@@ -68,126 +68,129 @@ const Home = () => {
       </>
       <>
       <>
-  {/* Card Grid */}
-  <div className="py-12 grid grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12">
-    {/* Card */}
-    <a className="group block" href="#">
-      <div className="aspect-w-16 aspect-h-12 overflow-hidden bg-gray-100 rounded-2xl dark:bg-neutral-800">
-        <img
-          className="group-hover:scale-105 transition-transform duration-500 ease-in-out object-cover rounded-2xl"
-          src="https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="Image Description"
-        />
-      </div>
-      <div className="pt-4">
-        <h3 className="relative inline-block font-medium text-lg text-black before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:w-full before:h-1 before:bg-lime-400 before:transition before:origin-left before:scale-x-0 group-hover:before:scale-x-100 dark:text-white">
-          eYoga
-        </h3>
-        <p className="mt-1 text-gray-600 dark:text-neutral-400">
-          A revamped and dynamic approach to yoga analytics
-        </p>
-        <div className="mt-3 flex flex-wrap gap-2">
-          <span className="py-1.5 px-3 bg-white text-gray-600 border border-gray-200 text-xs sm:text-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400">
-            Discovery
-          </span>
-          <span className="py-1.5 px-3 bg-white text-gray-600 border border-gray-200 text-xs sm:text-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400">
-            Brand Guidelines
-          </span>
-          <span className="py-1.5 px-3 bg-white text-gray-600 border border-gray-200 text-xs sm:text-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400">
-            Yoga
-          </span>
+  {/* Card Blog */}
+  <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+    {/* Title */}
+    <div className="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
+      <h2 className="text-2xl font-bold md:text-4xl md:leading-tight dark:text-white">
+        Customer stories
+      </h2>
+      <p className="mt-1 text-gray-600 dark:text-neutral-400">
+        See how game-changing companies are making the most of every engagement
+        with Preline.
+      </p>
+    </div>
+    {/* End Title */}
+    {/* Grid */}
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Card */}
+      <a
+        className="group hover:bg-gray-100 rounded-xl p-5 transition-all dark:hover:bg-white/10"
+        href="#"
+      >
+        <div className="aspect-w-16 aspect-h-10">
+          <img
+            className="w-full object-cover rounded-xl"
+            src="https://images.unsplash.com/photo-1661956602116-aa6865609028?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80"
+            alt="Image Description"
+          />
         </div>
-      </div>
-    </a>
-    {/* End Card */}
-    {/* Card */}
-    <a className="group block" href="#">
-      <div className="aspect-w-16 aspect-h-12 overflow-hidden bg-gray-100 rounded-2xl dark:bg-neutral-800">
-        <img
-          className="group-hover:scale-105 transition-transform duration-500 ease-in-out object-cover rounded-2xl"
-          src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="Image Description"
-        />
-      </div>
-      <div className="pt-4">
-        <h3 className="relative inline-block font-medium text-lg text-black before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:w-full before:h-1 before:bg-lime-400 before:transition before:origin-left before:scale-x-0 group-hover:before:scale-x-100 dark:text-white">
-          Nike React
+        <h3 className="mt-5 text-xl text-gray-800 dark:text-neutral-300 dark:hover:text-white">
+          Unity’s inside sales team drives 80% of its revenue with Preline.
         </h3>
-        <p className="mt-1 text-gray-600 dark:text-neutral-400">
-          Rewriting sport's playbook for billions of athletes
+        <p className="mt-3 inline-flex items-center gap-x-1 text-sm font-semibold text-gray-800 dark:text-neutral-200">
+          Learn more
+          <svg
+            className="flex-shrink-0 size-4 transition ease-in-out group-hover:translate-x-1"
+            xmlns="http://www.w3.org/2000/svg"
+            width={24}
+            height={24}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="m9 18 6-6-6-6" />
+          </svg>
         </p>
-        <div className="mt-3 flex flex-wrap gap-2">
-          <span className="py-1.5 px-3 bg-white text-gray-600 border border-gray-200 text-xs sm:text-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400">
-            Brand Strategy
-          </span>
-          <span className="py-1.5 px-3 bg-white text-gray-600 border border-gray-200 text-xs sm:text-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400">
-            Visual Identity
-          </span>
+      </a>
+      {/* End Card */}
+      {/* Card */}
+      <a
+        className="group hover:bg-gray-100 rounded-xl p-5 transition-all dark:hover:bg-white/10"
+        href="#"
+      >
+        <div className="aspect-w-16 aspect-h-10">
+          <img
+            className="w-full object-cover rounded-xl"
+            src="https://images.unsplash.com/photo-1669739432571-aee1f057c41f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1065&q=80"
+            alt="Image Description"
+          />
         </div>
-      </div>
-    </a>
-    {/* End Card */}
-    {/* Card */}
-    <a className="group block" href="#">
-      <div className="aspect-w-16 aspect-h-12 overflow-hidden bg-gray-100 rounded-2xl dark:bg-neutral-800">
-        <img
-          className="group-hover:scale-105 transition-transform duration-500 ease-in-out object-cover rounded-2xl"
-          src="https://images.unsplash.com/photo-1649999920973-ab6bfd0c0017?q=80&w=3542&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="Image Description"
-        />
-      </div>
-      <div className="pt-4">
-        <h3 className="relative inline-block font-medium text-lg text-black before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:w-full before:h-1 before:bg-lime-400 before:transition before:origin-left before:scale-x-0 group-hover:before:scale-x-100 dark:text-white">
-          Day Spa
+        <h3 className="mt-5 text-xl text-gray-800 dark:text-neutral-300 dark:hover:text-white">
+          Living Spaces creates a unified experience across the customer
+          journey.
         </h3>
-        <p className="mt-1 text-gray-600 dark:text-neutral-400">
-          Designing a new cocktail can
+        <p className="mt-3 inline-flex items-center gap-x-1 text-sm font-semibold text-gray-800 dark:text-neutral-200">
+          Learn more
+          <svg
+            className="flex-shrink-0 size-4 transition ease-in-out group-hover:translate-x-1"
+            xmlns="http://www.w3.org/2000/svg"
+            width={24}
+            height={24}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="m9 18 6-6-6-6" />
+          </svg>
         </p>
-        <div className="mt-3 flex flex-wrap gap-2">
-          <span className="py-1.5 px-3 bg-white text-gray-600 border border-gray-200 text-xs sm:text-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400">
-            Brand Strategy
-          </span>
-          <span className="py-1.5 px-3 bg-white text-gray-600 border border-gray-200 text-xs sm:text-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400">
-            Visual Identity
-          </span>
+      </a>
+      {/* End Card */}
+      {/* Card */}
+      <a
+        className="group hover:bg-gray-100 rounded-xl p-5 transition-all dark:hover:bg-white/10"
+        href="#"
+      >
+        <div className="aspect-w-16 aspect-h-10">
+          <img
+            className="w-full object-cover rounded-xl"
+            src="https://images.unsplash.com/photo-1657299171054-e679f630a776?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+            alt="Image Description"
+          />
         </div>
-      </div>
-    </a>
-    {/* End Card */}
-    {/* Card */}
-    <a className="group block" href="#">
-      <div className="aspect-w-16 aspect-h-12 overflow-hidden bg-gray-100 rounded-2xl dark:bg-neutral-800">
-        <img
-          className="group-hover:scale-105 transition-transform duration-500 ease-in-out object-cover rounded-2xl"
-          src="https://images.unsplash.com/photo-1528291954423-c0c71c12baeb?q=80&w=3426&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="Image Description"
-        />
-      </div>
-      <div className="pt-4">
-        <h3 className="relative inline-block font-medium text-lg text-black before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:w-full before:h-1 before:bg-lime-400 before:transition before:origin-left before:scale-x-0 group-hover:before:scale-x-100 dark:text-white">
-          Diamond Dynamics
+        <h3 className="mt-5 text-xl text-gray-800 dark:text-neutral-300 dark:hover:text-white">
+          Atlassian powers sales and support at scale with Preline.
         </h3>
-        <p className="mt-1 text-gray-600 dark:text-neutral-400">
-          From cutting-edge equipment to stylish apparel
+        <p className="mt-3 inline-flex items-center gap-x-1 text-sm font-semibold text-gray-800 dark:text-neutral-200">
+          Learn more
+          <svg
+            className="flex-shrink-0 size-4 transition ease-in-out group-hover:translate-x-1"
+            xmlns="http://www.w3.org/2000/svg"
+            width={24}
+            height={24}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="m9 18 6-6-6-6" />
+          </svg>
         </p>
-        <div className="mt-3 flex flex-wrap gap-2">
-          <span className="py-1.5 px-3 bg-white text-gray-600 border border-gray-200 text-xs sm:text-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400">
-            Sports Gear
-          </span>
-          <span className="py-1.5 px-3 bg-white text-gray-600 border border-gray-200 text-xs sm:text-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400">
-            Equipment
-          </span>
-          <span className="py-1.5 px-3 bg-white text-gray-600 border border-gray-200 text-xs sm:text-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400">
-            Discovery
-          </span>
-        </div>
-      </div>
-    </a>
-    {/* End Card */}
+      </a>
+      {/* End Card */}
+    </div>
+    {/* End Grid */}
   </div>
-  {/* End Card Grid */}
+  {/* End Card Blog */}
 </>
-
 
         {/* Features */}
         <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
