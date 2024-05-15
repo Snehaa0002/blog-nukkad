@@ -60,7 +60,7 @@ const Browse = () => {
 
 
     return (
-        <>
+        <div>
             {/* Card Blog */}
             <div className="max-w-[85rem] mt-6 px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
                 {/* Grid */}
@@ -68,9 +68,14 @@ const Browse = () => {
                     {displayCompetition()}
                 </div>
                 {/* End Grid */}
+
             </div>
+            
+
+
             {/* End Card Blog */}
-        </>
+
+        </div>
 
     )
 }

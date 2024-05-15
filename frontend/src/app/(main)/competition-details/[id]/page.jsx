@@ -129,6 +129,8 @@ const ViewCompetition = () => {
     <div>
       {displayCompetitionDetails()}
       {displayParticipants()}
+
+      
     </div>
   )
 }
