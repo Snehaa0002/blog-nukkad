@@ -9,6 +9,27 @@ const ViewCompetition = () => {
   const [participantList, setParticipantList] = useState([]);
   const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
 
+  const fetchUserBlogs = () => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog/getbyuser`, {
+      headers: {
+        'x-auth-token': currentUser.token
+      }
+    })
+      .then((response) => response.json())
+      .then(data => {
+        console.log(data);
+        setBlogList(data);
+        if (data === null) {
+          toast.error('You have not written any blogs yet');
+        } else {
+          return data;
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   const fetchCompetition = () => {
     fetch(`http://localhost:5000/competition/getbyid/${id}`)
       .then(res => res.json())
@@ -32,6 +53,52 @@ const ViewCompetition = () => {
       })
   }
 
+  const attemptParticipate = () => {
+    if (selBlog === null) {
+      toast.error('Please select a blog to participate in competition');
+      return;
+    }
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/participation/check-participation/${id}`, {
+      headers: {
+        'x-auth-token': currentUser.token
+      }
+    })
+      .then((response) => response.json())
+      .then(data => {
+        console.log(data);
+        if (data === null) {
+          fetch(`${process.env.NEXT_PUBLIC_API_URL}/participation/add`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'x-auth-token': currentUser.token
+            },
+            body: JSON.stringify({
+              blog: selBlog,
+              competition: id
+            })
+          })
+            .then((response) => {
+              if (response.status === 200) {
+                toast.success('Participation Successful');
+                return response.json();
+              }
+            })
+            .then(data => {
+              console.log(data);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        } else {
+          toast.error('You have already participated in this competition');
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   const displayCompetitionDetails = () => {
     if (competitionDetails !== null) {
       return (
@@ -42,7 +109,7 @@ const ViewCompetition = () => {
               <div className="space-y-4">
                 <div className="relative overflow-hidden rounded-lg bg-gray-100">
                   <img
-                    src={'http://localhost:5000/'+competitionDetails.cover}
+                    src={'http://localhost:5000/' + competitionDetails.cover}
                     loading="lazy"
                     alt="Photo by Himanshu Dewangan"
                     className="h-full w-full object-cover object-center"
@@ -124,12 +191,11 @@ const ViewCompetition = () => {
                   </div>
                 </div>
                 <div className="flex gap-2.5">
-                  <a
-                    href="#"
+                  <button
                     className="inline-block flex-1 rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 sm:flex-none md:text-base"
                   >
                     Participate in Competition
-                  </a>
+                  </button>
                 </div>
                 {/* buttons - end */}
 
@@ -160,6 +226,16 @@ const ViewCompetition = () => {
         console.log(data);
         fetchCompetition();
       })
+  }
+
+  const checkCompetionExpired = () => {
+    const currentDate = new Date();
+    const endDate = new Date(competitionDetails.endDate);
+    if (currentDate > endDate) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   const displayParticipants = () => {
