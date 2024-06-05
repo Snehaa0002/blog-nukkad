@@ -35,4 +35,13 @@ router.get('/getall', (req, res) => {
         });
 });
 
+router.get('/getbyid/:id', (req, res) => {
+    Model.findById(req.params.id)
+        .then((result) => {
+            res.json(result);
+        }).catch((err) => {
+            res.status(500).json();
+        });
+});
+
 module.exports = router;

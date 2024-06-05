@@ -1,4 +1,4 @@
-import React from 'react'
+ import React from 'react'
 import Navbar from './(main)/navbar'
 
 const Home = () => {
@@ -32,7 +32,7 @@ const Home = () => {
                 {/* End Title */}
                 <div className="mt-5 max-w-3xl">
                   <p className="text-lg text-gray-600 dark:text-neutral-400">
-                  Blog Nukkad is a platform where people share their thoughts, experiences, and expertise through writing. Blog Nukkad is a website where bloggers from all over come together to write and share their stories, ideas, and opinions.
+                  Blog Nukkad is a platform where people share their thoughts, experiences, and expertise through writing. Blog Nukkad is a website where bloggers from all over come together to write and share their stories, ideas, and opinions.<p>It's a place to discover new perspectives, participate with others, and be part of a lively online community focused around blogging. It's like a community where bloggers connect, read each other's posts, and exchange ideas on various topics.</p>
                   </p>
                 </div>
                 {/* Buttons */}
@@ -71,11 +71,129 @@ const Home = () => {
         <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
     
           <div className="aspect-w-10 aspect-h-2">
-            <img
-              className="w-full object-cover rounded-xl"
-              src="https://img.freepik.com/premium-vector/illustration-vector-graphic-cartoon-character-blogging_516790-1481.jpg"
-            />
+            
           </div>
+          <>
+  {/* Card Grid */}
+  <div className="py-12 grid grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12">
+    {/* Card */}
+    <a className="group block" href="#">
+      <div className="aspect-w-16 aspect-h-12 overflow-hidden bg-gray-100 rounded-2xl dark:bg-neutral-800">
+        <img
+          className="group-hover:scale-105 transition-transform duration-500 ease-in-out object-cover rounded-2xl"
+          src="https://thumbs.dreamstime.com/b/woman-writing-blog-content-notebook-table-closeup-162627112.jpg"
+          alt="Image Description"
+        />
+      </div>
+      <div className="pt-4">
+        <h3 className="relative inline-block font-medium text-lg text-black before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:w-full before:h-1 before:bg-lime-400 before:transition before:origin-left before:scale-x-0 group-hover:before:scale-x-100 dark:text-white">
+          eYoga
+        </h3>
+        <p className="mt-1 text-gray-600 dark:text-neutral-400">
+          A revamped and dynamic approach to yoga analytics
+        </p>
+        <div className="mt-3 flex flex-wrap gap-2">
+          <span className="py-1.5 px-3 bg-white text-gray-600 border border-gray-200 text-xs sm:text-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400">
+            Discovery
+          </span>
+          <span className="py-1.5 px-3 bg-white text-gray-600 border border-gray-200 text-xs sm:text-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400">
+            Brand Guidelines
+          </span>
+          <span className="py-1.5 px-3 bg-white text-gray-600 border border-gray-200 text-xs sm:text-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400">
+            Yoga
+          </span>
+        </div>
+      </div>
+    </a>
+    {/* End Card */}
+    {/* Card */}
+    <a className="group block" href="#">
+      <div className="aspect-w-16 aspect-h-12 overflow-hidden bg-gray-100 rounded-2xl dark:bg-neutral-800">
+        <img
+          className="group-hover:scale-105 transition-transform duration-500 ease-in-out object-cover rounded-2xl"
+          src="https://media.istockphoto.com/id/1924137135/photo/online-blog-search-learning-work-internet-freelance-business-post-website-online-homepage.webp?b=1&s=170667a&w=0&k=20&c=jJ5x9T6UxrW_AYsKigJTq6k3pJITEq0Z5z5VKYCg5q0="
+          alt="Image Description"
+        />
+      </div>
+      <div className="pt-4">
+        <h3 className="relative inline-block font-medium text-lg text-black before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:w-full before:h-1 before:bg-lime-400 before:transition before:origin-left before:scale-x-0 group-hover:before:scale-x-100 dark:text-white">
+          Nike React
+        </h3>
+        <p className="mt-1 text-gray-600 dark:text-neutral-400">
+          Rewriting sport's playbook for billions of athletes
+        </p>
+        <div className="mt-3 flex flex-wrap gap-2">
+          <span className="py-1.5 px-3 bg-white text-gray-600 border border-gray-200 text-xs sm:text-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400">
+            Brand Strategy
+          </span>
+          <span className="py-1.5 px-3 bg-white text-gray-600 border border-gray-200 text-xs sm:text-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400">
+            Visual Identity
+          </span>
+        </div>
+      </div>
+    </a>
+    {/* End Card */}
+    {/* Card */}
+    <a className="group block" href="#">
+      <div className="aspect-w-16 aspect-h-12 overflow-hidden bg-gray-100 rounded-2xl dark:bg-neutral-800">
+        <img
+          className="group-hover:scale-105 transition-transform duration-500 ease-in-out object-cover rounded-2xl"
+          src="https://images.unsplash.com/photo-1649999920973-ab6bfd0c0017?q=80&w=3542&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="Image Description"
+        />
+      </div>
+      <div className="pt-4">
+        <h3 className="relative inline-block font-medium text-lg text-black before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:w-full before:h-1 before:bg-lime-400 before:transition before:origin-left before:scale-x-0 group-hover:before:scale-x-100 dark:text-white">
+          Day Spa
+        </h3>
+        <p className="mt-1 text-gray-600 dark:text-neutral-400">
+          Designing a new cocktail can
+        </p>
+        <div className="mt-3 flex flex-wrap gap-2">
+          <span className="py-1.5 px-3 bg-white text-gray-600 border border-gray-200 text-xs sm:text-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400">
+            Brand Strategy
+          </span>
+          <span className="py-1.5 px-3 bg-white text-gray-600 border border-gray-200 text-xs sm:text-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400">
+            Visual Identity
+          </span>
+        </div>
+      </div>
+    </a>
+    {/* End Card */}
+    {/* Card */}
+    <a className="group block" href="#">
+      <div className="aspect-w-16 aspect-h-12 overflow-hidden bg-gray-100 rounded-2xl dark:bg-neutral-800">
+        <img
+          className="group-hover:scale-105 transition-transform duration-500 ease-in-out object-cover rounded-2xl"
+          src="https://images.unsplash.com/photo-1528291954423-c0c71c12baeb?q=80&w=3426&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="Image Description"
+        />
+      </div>
+      <div className="pt-4">
+        <h3 className="relative inline-block font-medium text-lg text-black before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:w-full before:h-1 before:bg-lime-400 before:transition before:origin-left before:scale-x-0 group-hover:before:scale-x-100 dark:text-white">
+          Diamond Dynamics
+        </h3>
+        <p className="mt-1 text-gray-600 dark:text-neutral-400">
+          From cutting-edge equipment to stylish apparel
+        </p>
+        <div className="mt-3 flex flex-wrap gap-2">
+          <span className="py-1.5 px-3 bg-white text-gray-600 border border-gray-200 text-xs sm:text-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400">
+            Sports Gear
+          </span>
+          <span className="py-1.5 px-3 bg-white text-gray-600 border border-gray-200 text-xs sm:text-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400">
+            Equipment
+          </span>
+          <span className="py-1.5 px-3 bg-white text-gray-600 border border-gray-200 text-xs sm:text-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400">
+            Discovery
+          </span>
+        </div>
+      </div>
+    </a>
+    {/* End Card */}
+  </div>
+  {/* End Card Grid */}
+</>
+
       
           {/* Grid */}
           <div className="mt-5 lg:mt-16 grid lg:grid-cols-3 gap-8 lg:gap-12">
@@ -117,8 +235,7 @@ const Home = () => {
                       Creative minds
                     </h3>
                     <p className="mt-1 text-gray-600 dark:text-neutral-400">
-                      We choose our teams carefully. Our people are the secret to
-                      great work.
+                    Offering a space for users to discover new voices, perspectives, and content across various topics and interests.
                     </p>
                   </div>
                 </div>
@@ -142,11 +259,10 @@ const Home = () => {
                   </svg>
                   <div className="grow">
                     <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
-                      Simple and affordable
+                    Consistency and Frequency
                     </h3>
                     <p className="mt-1 text-gray-600 dark:text-neutral-400">
-                      From boarding passes to movie tickets, there's pretty much
-                      nothing you can't store with Preline.
+                    Maintain a consistent posting schedule to keep your audience engaged and returning for fresh content. Aim for a balance between quantity and quality, ensuring that each post adds value and maintains the standard of your blog.
                     </p>
                   </div>
                 </div>
@@ -170,11 +286,10 @@ const Home = () => {
                   </svg>
                   <div className="grow">
                     <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
-                      Industry-leading documentation
+                    Content Quality
                     </h3>
                     <p className="mt-1 text-gray-600 dark:text-neutral-400">
-                      Our documentation and extensive Client libraries contain
-                      everything a business needs to build a custom integration.
+                    The primary objective should be to provide high-quality, engaging, and relevant content to your target audience. 
                     </p>
                   </div>
                 </div>
@@ -200,11 +315,10 @@ const Home = () => {
                   </svg>
                   <div className="grow">
                     <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
-                      Designing for people
+                    Audience Engagement:
                     </h3>
                     <p className="mt-1 text-gray-600 dark:text-neutral-400">
-                      We actively pursue the right balance between functionality and
-                      aesthetics, creating delightful experiences.
+                    Encourage active engagement with your audience through comments, discussions, polls, and social media interactions. Foster a sense of community among your readers.
                     </p>
                   </div>
                 </div>
@@ -266,7 +380,7 @@ const Home = () => {
                 Blog Nukkad
               </a>
               <p className="mt-3 text-xs sm:text-sm text-gray-600 dark:text-neutral-400">
-                © 2022 Preline.
+                © 2024
               </p>
             </div>
             {/* End Col */}
@@ -709,7 +823,7 @@ const Home = () => {
                     Brand
                   </a>
                   <p className="mt-1 text-xs sm:text-sm text-gray-600 dark:text-neutral-400">
-                    © 2022 Preline.
+                    © 2024
                   </p>
                 </div>
                 {/* Social Brands */}
