@@ -13,11 +13,7 @@ const CompetitionDetails = () => {
   const [blogList, setBlogList] = useState([]);
 
   const fetchUserBlogs = () => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog/getbyuser`, {
-      headers: {
-        'x-auth-token': currentUser.token
-      }
-    })
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog/getbyuser/${id}`)
       .then((response) => response.json())
       .then(data => {
         console.log(data);
@@ -57,11 +53,7 @@ const CompetitionDetails = () => {
       toast.error('Please select a blog to participate in competition');
       return;
     }
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/participation/check-participation/${id}`, {
-      headers: {
-        'x-auth-token': currentUser.token
-      }
-    })
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/participation/check-participation/${id}/${currentUser._id}`)
       .then((response) => response.json())
       .then(data => {
         console.log(data);

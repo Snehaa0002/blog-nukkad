@@ -1,4 +1,4 @@
- 'use client'
+'use client'
 import MDEditor from '@uiw/react-md-editor';
 import { useFormik } from 'formik';
 import { useRouter } from 'next/navigation';
@@ -6,12 +6,13 @@ import React, { useState } from 'react'
 import toast from 'react-hot-toast';
 
 const CreateBlog = () => {
-const router = useRouter();
+  const router = useRouter();
   const [value, setValue] = React.useState("*Hello world!!!*");
   const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
 
   const blogForm = useFormik({
     initialValues: {
+      user: currentUser._id,
       title: '',
       category: '',
       cover: '',
@@ -25,24 +26,23 @@ const router = useRouter();
 
       fetch('http://localhost:5000/blog/add', {
         method: 'POST',
-        body : JSON.stringify(values),
+        body: JSON.stringify(values),
         headers: {
-          'Content-Type' : 'application/json',
-          'x-auth-token' : currentUser.token
+          'Content-Type': 'application/json'
         }
       })
-      .then((response) => {
+        .then((response) => {
           console.log(response.status);
-          if(response.status === 200){
+          if (response.status === 200) {
             toast.success('Blog Added')
             router.push("/browse-blog")
-          }else{
+          } else {
             toast.error('some error occured')
           }
         }).catch((err) => {
           console.log(err);
           toast.error('some error occured')
-      });
+        });
 
     }
   })
@@ -185,14 +185,14 @@ const router = useRouter();
                 </div>
               </div>
             </div>
-        <div className="p-6 border-t border-gray-200 rounded-b">
-          <button
-            className="text-white bg-cyan-600 hover:bg-cyan-300 focus:ring-4 focus:ring-cyan-8900 font-medium rounded-lg text-sm px-10 py-3 text-center"
-            type="submit"
-          >
-            Save Blog
-          </button>
-        </div>
+            <div className="p-6 border-t border-gray-200 rounded-b">
+              <button
+                className="text-white bg-cyan-600 hover:bg-cyan-300 focus:ring-4 focus:ring-cyan-8900 font-medium rounded-lg text-sm px-10 py-3 text-center"
+                type="submit"
+              >
+                Save Blog
+              </button>
+            </div>
           </form>
         </div>
       </div>
