@@ -121,5 +121,4 @@ const BrowseBlog = () => {
         </div>
     )
 }
-
 export default BrowseBlog
