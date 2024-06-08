@@ -102,16 +102,18 @@ const CompetitionDetails = () => {
           </header>
           <div>
 
-            <select onChange={e => setSelBlog(e.target.value)} className='mx-auto text-center mb-12 block my-3'>
-              <option value="">Select Blog</option>
-              {blogList.map((blog) => {
-                return <option value={blog._id}>{blog.title}</option>
-              })}
-            </select>
+
             {
               checkCompetionExpired() ? displayWinner() :
-                (
+                (<>
+                  <select onChange={e => setSelBlog(e.target.value)} className='mx-auto text-center mb-12 block my-3'>
+                    <option value="">Select Blog</option>
+                    {blogList.map((blog) => {
+                      return <option value={blog._id}>{blog.title}</option>
+                    })}
+                  </select>
                   <button onClick={attemptParticipate}>Participate in Compeition</button>
+                </>
                 )
             }
             {/* <button onClick={attemptParticipate}>Participate in Compeition</button> */}
@@ -138,7 +140,7 @@ const CompetitionDetails = () => {
     return <div>
       <h3 className='text-red-800 text-center text-2xl font-semibold animate-bounce'>Competition Over</h3>
       {
-        competitionData.winner ? <p className='text-center text-lg my-3 '>Winner: {competitionData.winner.name}</p> : <p className='text-center text-lg my-3 '>Result not declared Yet</p>
+        competitionData.winner ? <p className='text-center text-lg my-3 '>Winner: {competitionData.winner.username}</p> : <p className='text-center text-lg my-3 '>Result not declared Yet</p>
       }
     </div>
   }

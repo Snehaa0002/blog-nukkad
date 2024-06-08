@@ -1,4 +1,4 @@
-const { model,Schema } = require('../connection');
+const { model,Schema, Types } = require('../connection');
 
 const mySchema = new Schema({
     title : { type : String, required: true},
@@ -6,6 +6,7 @@ const mySchema = new Schema({
     cover : String,
     prize : String,
     endDate : Date,
+    winner : {type : Types.ObjectId, ref : 'user'},
     resultDeclared: {type : Boolean, default: false},
     createdAt: { type : Date,default: Date.now }
 });

@@ -93,7 +93,7 @@ const ViewCompetition = () => {
                       scope="row"
                       className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                     >
-                      {participant.user.name}
+                      {participant.user.username}
                     </th>
                     <td className="px-6 py-4 whitespace-nowrap">
                       {new Date(participant.createdAt).toLocaleDateString()}
@@ -107,7 +107,7 @@ const ViewCompetition = () => {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <button className="bg-blue-500 text-white px-4 py-2 rounded-lg" onClick={
-                        () => declareWinner(participant._id)
+                        () => declareWinner(participant.user._id)
                       } >Declare Winner</button>
                     </td>
 
