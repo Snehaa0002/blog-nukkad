@@ -13,7 +13,7 @@ const CompetitionDetails = () => {
   const [blogList, setBlogList] = useState([]);
 
   const fetchUserBlogs = () => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog/getbyuser/${id}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog/getbyuser/${currentUser._id}`)
       .then((response) => response.json())
       .then(data => {
         console.log(data);
@@ -54,17 +54,20 @@ const CompetitionDetails = () => {
       return;
     }
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/participation/check-participation/${id}/${currentUser._id}`)
-      .then((response) => response.json())
+      .then((response) => {
+        console.log(response.status);
+        return response.json()
+      })
       .then(data => {
         console.log(data);
         if (data === null) {
           fetch(`${process.env.NEXT_PUBLIC_API_URL}/participation/add`, {
             method: 'POST',
             headers: {
-              'Content-Type': 'application/json',
-              'x-auth-token': currentUser.token
+              'Content-Type': 'application/json'
             },
             body: JSON.stringify({
+              user: currentUser._id,
               blog: selBlog,
               competition: id
             })
