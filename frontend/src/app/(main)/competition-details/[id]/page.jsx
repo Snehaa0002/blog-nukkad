@@ -138,7 +138,7 @@ const CompetitionDetails = () => {
   const displayWinner = () => {
 
     return <div>
-      <h3 className='text-red-800 text-center text-2xl font-semibold animate-bounce'>Competition Over</h3>
+      <h3 className='text-red-800 text-center text-2xl  font-semibold animate-bounce'>Competition Over</h3>
       {
         competitionData.winner ? <p className='text-center text-lg my-3 '>Winner: {competitionData.winner.username}</p> : <p className='text-center text-lg my-3 '>Result not declared Yet</p>
       }

@@ -6,9 +6,6 @@ import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 
 
-
-
-
 const Login = () => {
 
   const router = useRouter();
@@ -34,7 +31,7 @@ const Login = () => {
               .then((data) => {
                 console.log(data);
                 sessionStorage.setItem('user', JSON.stringify(data));
-                router.push('/');
+                router.push('/browse-competition');
               })
           } else {
             toast.error('Invalid Credentials');
