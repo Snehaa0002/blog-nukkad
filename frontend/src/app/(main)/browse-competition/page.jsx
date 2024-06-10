@@ -53,8 +53,10 @@ const Browse = () => {
                     >
                         View Details
                     </Link>
+                    
                 </div>
-            </div>
+                </div>
+        
         ))
     }
 
